@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 
-const port = 1005;
+const port = 1008;
 // const fs = require(fs); //보류
 // ReferenceError: Cannot access 'fs' before initialization 에러 발생지점
 
@@ -24,8 +24,6 @@ app.use(express.static("public"));
 // 3. app 객체가 정확하게 생성되었는지 확인하세요. (const app = express;가 정확히 명시되어있는지 확인)
 
 //------------------------------------------------------------------------------------------------------------------------//
-
-
 
 
 
