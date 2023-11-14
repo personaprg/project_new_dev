@@ -9,3 +9,6 @@ app.use('/', (req, res) =>{
   res.sendfile("index.html");
 })
 
+app.listen(port, () => {
+  console.log(`localhost:${port}`);
+});
