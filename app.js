@@ -1,6 +1,7 @@
 const express = require('express');
-const app = express;
-const port = 8080;
+const app = express();
+
+const port = 1005;
 // const fs = require(fs); //보류
 // ReferenceError: Cannot access 'fs' before initialization 에러 발생지점
 
@@ -29,10 +30,33 @@ app.use(express.static("public"));
 
 
 //------------------------------------------------------------------------------------------------------------------------//
+// 검증 끝내고 사용
 app.use('/', (req, res) =>{
-  res.sendfile("index.html");
+  res.sendFile("index.html");
 })
 
+
+//------------------------------------------------------------------------------------------------------------------------//
 app.listen(port, () => {
-  console.log(`서버 오픈 localhost:${port}`);
+  console.log(`서버 오픈 http://localhost:${port}`);
 });
+//------------------------------------------------------------------------------------------------------------------------//
+//Emitted 'error' event on Server instance at: 에러 발생
+
+//질문
+// Emitted 'error' event on Server instance at:
+//     at emitErrorNT (node:net:1778:8)
+//     at process.processTicksAndRejections (node:internal/process/task_queues:82:21) {
+//   code: 'EADDRINUSE',
+//   errno: -4091,
+//   syscall: 'listen',
+//   port: 8080
+// }
+
+// Node.js v18.17.1
+// PS C:\Users\Administrator\Desktop\k231114\project_new_dev>
+// fwd-i-search: _
+
+//답변
+// 1. 포트를 변경하세요: (시도 포트 번호를 1005로 변경)
+//------------------------------------------------------------------------------------------------------------------------//
