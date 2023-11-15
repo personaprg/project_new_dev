@@ -58,8 +58,12 @@ app.post('/data', (req, res) => {
 
 //------------------------------------------------------------------------------------------------------------------------//
 
-    // 데이터를 JSON 형태로 변환
+    // req.body 데이터를 JSON 형태로 변환
     const jsonData = JSON.stringify(bodyData, null, 2);
+    //1. JSON.stringify()는 JavaScript 객체나 값의 집합을 JSON 문자열로 변환하는 메서드
+    //2. 기본 구문 JSON.stringify(value[, replacer[, space]]);
+    //3. JavaScript 값을 JSON 문자열로 변환하고, 교체 함수가 지정된 경우 선택적으로 값을 바꾸고, 교체 배열이 지정된 경우 지정된 속성만 선택적으로 포함
+
     console.log("변환 전 데이터 :" + bodyData)// req.body의 데이터
     console.log("변환 후 데이터 : " + jsonData); //데이터 변환 검증
     // 번환 전 데이터 :[object Object]
