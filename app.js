@@ -60,7 +60,13 @@ app.post('/data', (req, res) => {
 
     // 데이터를 JSON 형태로 변환
     const jsonData = JSON.stringify(bodyData, null, 2);
-    console.log("변환된 데이터 검증 : " + jsonData); //데이터 변환 검증
+    console.log("변환 전 데이터 :" + bodyData)// req.body의 데이터
+    console.log("변환 후 데이터 : " + jsonData); //데이터 변환 검증
+    // 번환 전 데이터 :[object Object]
+    // 변환 후 데이터 : {
+    //   "data": "ㅎㅇ"
+    // }
+
 
     // // data.json 파일에 쓰기
     // const dataFilePath = path.join(__dirname, 'public', 'data.json');
