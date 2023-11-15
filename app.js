@@ -42,8 +42,8 @@ app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+//[검증완료] path 모듈의 개념과 join 메소드를 사용하여 절대 경로를 얻었음(주소는 아래 주석 3번의 해당함)
 app.post('/data', (req, res) => {
-  //[검증완료] path 모듈의 개념과 join 메소드를 사용하여 절대 경로를 얻었음(주소는 아래 주석 3번의 해당함)
   const index = path.join(__dirname, "public", "index.html");
   //1. path : Node.js에서 제공하는 내장 모듈 중 하나로, 파일 경로와 관련된 여러 유틸리티 함수를 제공
   //join: [Function: join]
@@ -62,7 +62,7 @@ app.post('/data', (req, res) => {
 
   //------------------------------------------------------------------------------------------------------------------------//
 
-  // req.body 데이터를 JSON 형태로 변환
+  //[검증완료] req.body 데이터를 JSON 형태로 변환
   const jsonData = JSON.stringify(bodyData, null, 2);
   /* 1. JSON.stringify()는 JavaScript 객체나 값의 집합을 JSON 문자열로 변환하는 메서드
  [적절한 비유] JSON.stringify(value[, replacer[, space]]); 
@@ -102,15 +102,23 @@ app.post('/data', (req, res) => {
   //   res.status(200).send('Data received and saved successfully');
   //------------------------------------------------------------------------------------------------------------------------//
   // 'public/data.json' 파일에 데이터를 JSON 형식으로 저장
+
+  //[검증완료]
   const dataJson = path.join(__dirname, "public", "data.json")
+  //[console 찍어본 결과] C:\Users\Administrator\Desktop\k231114\project_new_dev\public\data.json
   //dataJson에 data.json이라는 파일의 절대 경로를 지정
   //fs모듈을 이용하여 data.json파일에 접근하여 쓰기 위한 방식
 
   // 아래 메소드의 차이 (둘다 파일 시스템에 데이터를 쓰기위한 node.js에서 지원하는 메소드)
   // fs.writeFile
   // fs.write
+  // [검증완료]
   fs.writeFile(dataJson, JSON.stringify(jsonData), (err) => {
-  }
+    // 이 내용만 있으면 data.json에 써지는 내용(아래)
+    // "{\n  \"data\": \"json에 데이터가 써질까?\"\n}"
+
+    // 필요한 것,
+  });
   /* 1. fs.writeFile(file, data, [options], callback)
     file: 데이터를 저장할 파일의 경로 또는 파일 기술자입니다.
     data: 파일에 쓸 데이터입니다.
