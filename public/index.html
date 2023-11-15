@@ -8,8 +8,28 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="root">
-    메시지 출력 테스트
-  </div>
+
+  <h1>POST Example</h1>
+  <form action="/data" method="post">
+    <label for="data">Data:</label>
+    <input type="text" id="data" name="data" >
+    <button type="submit">Submit</button>
+  </form>
+
+
+  <script>
+    const snedbutton = document.getElementById("send");
+
+    //fetch를 사용하여 데이터 전달 실험
+        
+    
+    /*만약 fetch를 사용하지 않는다면?
+    const xhr = new XMLHttpRequest();
+            xhr.open('POST', '/data', true);
+            xhr.setRequestHeader('Content-Type', 'application/json');
+    */
+
+  </script>
 </body>
+
 </html>
