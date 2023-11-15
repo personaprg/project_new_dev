@@ -15,6 +15,10 @@ const port = 1008;//portnum 미리 정의(아래에서 직접 넣는 것 보다 
 const bodyParser = require('body-parser');
 //Express 앱에서 HTTP 요청의 본문(body)을 쉽게 파싱하도록 도와주는 라이브러리
 
+
+const fs = require("fs");//data.json에 내용을 할당하기 위해 모듈 불러오기
+const { formatWithOptions } = require('util');
+
 app.use(express.static('public'));
 //------------------------------------------------------------------------------------------------------------------------//
 //TypeError: app.use is not a function 타입 에러 발생, GPT에 질문 요청
@@ -61,7 +65,6 @@ app.post('/data', (req, res) => {
     // req.body 데이터를 JSON 형태로 변환
     const jsonData = JSON.stringify(bodyData, null, 2);
     /* 1. JSON.stringify()는 JavaScript 객체나 값의 집합을 JSON 문자열로 변환하는 메서드
-
    [적절한 비유] JSON.stringify(value[, replacer[, space]]); 
    여러분이 가지고 있는 데이터가 노트북의 메모장에 적힌 내용이라고 합시다. 여러 줄에 걸쳐 있는 이 내용을 한 줄짜리 문장으로 변환하려면 어떻게 할까요?
    (필수)value: 노트북에 적힌 내용 자체입니다. 여러분이 변환하고 싶은 데이터가 됩니다.
@@ -71,30 +74,22 @@ app.post('/data', (req, res) => {
    - 숫자: 들여쓰기 수준을 나타냅니다. 예를 들어, 2를 사용하면 2칸 들여쓰기가 적용
    - 문자열: 지정된 문자열이 사용되어 해당 문자열로 들여쓰기가 적용됩니다. 예를 들어, ' '은 세 개의 공백 문자로 들여쓰기를 의미
   [정리]const jsonData = JSON.stringify(노트북 메모장 내용, 메모장 내용 선택, 보기 좋게 문자열 편집);
-
-
-    */
-
-    /* 2. 기본 구문 JSON.stringify(value[, replacer[, space]]);
-
-    */
-    
-    /* 3. JavaScript 값을 JSON 문자열로 변환하고, 교체 함수가 지정된 경우 선택적으로 값을 바꾸고, 교체 배열이 지정된 경우 지정된 속성만 선택적으로 포함
-    
-    
     */
 
     // value (필수 매개변수): JSON 문자열로 변환하려는 JavaScript 객체나 값입니다. 즉 이 프로젝트에서 req.body로 받은 bodyData의 해당.
     // replacer 함수의 역할: -key와 value. 이 함수에서 반환하는 값에 따라 value가 최종 결과에 포함될지 여부가 결정
     // space (선택 사항): 결과 문자열을 보기 좋게 포맷팅하기 위해 추가되는 공백 문자열입니다. 들여쓰기를 설정하거나 공백을 추가하여 가독성을 높일 수 있습니다
-
-
+    
     console.log("변환 전 데이터 :" + bodyData)// req.body의 데이터
     console.log("변환 후 데이터 : " + jsonData); //데이터 변환 검증
     // 번환 전 데이터 :[object Object]
     // 변환 후 데이터 : {
     //   "data": "ㅎㅇ"
     // }
+//------------------------------------------------------------------------------------------------------------------------//
+    
+
+
 
 
     // // data.json 파일에 쓰기
@@ -106,6 +101,15 @@ app.post('/data', (req, res) => {
     //   }
     //   res.status(200).send('Data received and saved successfully');
 //------------------------------------------------------------------------------------------------------------------------//
+  // 'public/data.json' 파일에 데이터를 JSON 형식으로 저장
+ const dataJson = path.join(__dirname, "public", "data.json")
+  //dataJson에 data.json이라는 파일의 절대 경로를 지정
+  //fs모듈을 이용하여 data.json파일에 접근하여 쓰기 위한 방식
+
+  //차이 파악 필요
+  fs.writeFile
+  fs.write
+
 
 
 });
