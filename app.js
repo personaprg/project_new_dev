@@ -117,7 +117,10 @@ app.post('/data', (req, res) => {
     // 이 내용만 있으면 data.json에 써지는 내용(아래)
     // "{\n  \"data\": \"json에 데이터가 써질까?\"\n}"
 
-    // 필요한 것,
+    // 의문점
+    //JSON.stringify(jsonData) 이런 옵션으로 jsonData의 내용을 다시 JSON화 하는 과정이 제대로 작동을 하지 않는다.
+    // req.body => josnParsing => jsonParsing의 과정이 어째서 필요한지 검증 할 필요가 있을 것 같다.
+
   });
   /* 1. fs.writeFile(file, data, [options], callback)
     file: 데이터를 저장할 파일의 경로 또는 파일 기술자입니다.
