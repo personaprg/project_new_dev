@@ -112,14 +112,21 @@ app.post('/data', (req, res) => {
   // 아래 메소드의 차이 (둘다 파일 시스템에 데이터를 쓰기위한 node.js에서 지원하는 메소드)
   // fs.writeFile
   // fs.write
+  //[내용 갱신 테스트]
+
+  
   // [검증완료]
   fs.writeFile(dataJson, JSON.stringify(jsonData), (err) => {
+
+    
     // 이 내용만 있으면 data.json에 써지는 내용(아래)
     // "{\n  \"data\": \"json에 데이터가 써질까?\"\n}"
 
     // 의문점
     //JSON.stringify(jsonData) 이런 옵션으로 jsonData의 내용을 다시 JSON화 하는 과정이 제대로 작동을 하지 않는다.
     // req.body => josnParsing => jsonParsing의 과정이 어째서 필요한지 검증 할 필요가 있을 것 같다.
+
+
 
   });
   /* 1. fs.writeFile(file, data, [options], callback)
@@ -140,8 +147,6 @@ app.post('/data', (req, res) => {
 
   //fs.writeFile는 파일을 열고 쓰기를 처리하는 복잡한 작업을 자동으로 처리합니다.
   //fs.write는 더 낮은 수준의 API로, 직접 파일을 열고 파일 기술자를 관리해야 합니다.
-
-
 
 });
 
