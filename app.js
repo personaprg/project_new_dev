@@ -49,11 +49,23 @@ app.post('/data', (req, res) => {
 
   //[검증완료] bodyData의 post방식으로 보낸 body의 데이터가 sumbit에 반응하여 데이터 전달 되었음
   const bodyData = req.body;
-  console.log(bodyData);
-  console.log(path);
+  // console.log(bodyData);
+  // console.log(path);
 
 //------------------------------------------------------------------------------------------------------------------------//
 
+    // 데이터를 JSON 형태로 변환
+    const jsonData = JSON.stringify(bodyData, null, 2);
+    console.log("변환된 데이터 검증 : " + jsonData); //데이터 변환 검증
+
+    // // data.json 파일에 쓰기
+    // const dataFilePath = path.join(__dirname, 'public', 'data.json');
+    // fs.writeFile(dataFilePath, jsonData, (err) => {
+    //   if (err) {
+    //     console.error('Error writing to data.json:', err);
+    //     return res.status(500).send('Internal Server Error');
+    //   }
+    //   res.status(200).send('Data received and saved successfully');
 //------------------------------------------------------------------------------------------------------------------------//
 
 
