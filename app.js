@@ -64,6 +64,12 @@ app.post('/data', (req, res) => {
     //2. 기본 구문 JSON.stringify(value[, replacer[, space]]);
     //3. JavaScript 값을 JSON 문자열로 변환하고, 교체 함수가 지정된 경우 선택적으로 값을 바꾸고, 교체 배열이 지정된 경우 지정된 속성만 선택적으로 포함
 
+    // value (필수 매개변수): JSON 문자열로 변환하려는 JavaScript 객체나 값입니다. 즉 이 프로젝트에서 req.body로 받은 bodyData의 해당.
+    // replacer (선택 사항): replacer 함수의 역할
+    // -key와 value. 이 함수에서 반환하는 값에 따라 value가 최종 결과에 포함될지 여부가 결정
+    // space (선택 사항): 결과 문자열을 보기 좋게 포맷팅하기 위해 추가되는 공백 문자열입니다. 들여쓰기를 설정하거나 공백을 추가하여 가독성을 높일 수 있습니다
+
+
     console.log("변환 전 데이터 :" + bodyData)// req.body의 데이터
     console.log("변환 후 데이터 : " + jsonData); //데이터 변환 검증
     // 번환 전 데이터 :[object Object]
