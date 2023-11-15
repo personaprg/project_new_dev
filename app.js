@@ -60,13 +60,27 @@ app.post('/data', (req, res) => {
 
     // req.body 데이터를 JSON 형태로 변환
     const jsonData = JSON.stringify(bodyData, null, 2);
-    //1. JSON.stringify()는 JavaScript 객체나 값의 집합을 JSON 문자열로 변환하는 메서드
-    //2. 기본 구문 JSON.stringify(value[, replacer[, space]]);
-    //3. JavaScript 값을 JSON 문자열로 변환하고, 교체 함수가 지정된 경우 선택적으로 값을 바꾸고, 교체 배열이 지정된 경우 지정된 속성만 선택적으로 포함
+    /* 1. JSON.stringify()는 JavaScript 객체나 값의 집합을 JSON 문자열로 변환하는 메서드
+    
+   [적절한 비유] JSON.stringify(value[, replacer[, space]]); 
+   여러분이 가지고 있는 데이터가 노트북의 메모장에 적힌 내용이라고 합시다. 여러 줄에 걸쳐 있는 이 내용을 한 줄짜리 문장으로 변환하려면 어떻게 할까요?
+   value: 노트북에 적힌 내용 자체입니다. 여러분이 변환하고 싶은 데이터가 됩니다.
+   replacer: 노트북에 적힌 내용 중에서 특정한 부분만 선택하고 싶을 때 사용됩니다. 예를 들어, "비밀번호" 같은 중요한 정보를 감출 수 있습니다.
+   space: 결과 문자열을 어떻게 보여줄지에 대한 포맷을 결정합니다. 들여쓰기를 추가하거나 줄 바꿈을 할 수 있습니다. 이것은 단순히 보기 좋게 만드는 것이며, 실제 데이터에는 영향을 미치지 않습니다.
+    
+    */
+
+    /* 2. 기본 구문 JSON.stringify(value[, replacer[, space]]);
+
+    */
+    
+    /* 3. JavaScript 값을 JSON 문자열로 변환하고, 교체 함수가 지정된 경우 선택적으로 값을 바꾸고, 교체 배열이 지정된 경우 지정된 속성만 선택적으로 포함
+    
+    
+    */
 
     // value (필수 매개변수): JSON 문자열로 변환하려는 JavaScript 객체나 값입니다. 즉 이 프로젝트에서 req.body로 받은 bodyData의 해당.
-    // replacer (선택 사항): replacer 함수의 역할
-    // -key와 value. 이 함수에서 반환하는 값에 따라 value가 최종 결과에 포함될지 여부가 결정
+    // replacer 함수의 역할: -key와 value. 이 함수에서 반환하는 값에 따라 value가 최종 결과에 포함될지 여부가 결정
     // space (선택 사항): 결과 문자열을 보기 좋게 포맷팅하기 위해 추가되는 공백 문자열입니다. 들여쓰기를 설정하거나 공백을 추가하여 가독성을 높일 수 있습니다
 
 
